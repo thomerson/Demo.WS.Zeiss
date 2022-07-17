@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Socket test</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-form ref="form" :model="form" label-width="80px">
+            <el-form-item label="machine_id">
+                <el-button type="primary" @click="connect">connect</el-button>
+                <el-button @click="disconnect">disconnect</el-button>
+            </el-form-item>
+            <el-form-item label="machine_id">
+                <el-input v-model="form.machine_id"></el-input>
+            </el-form-item>
+            <el-form-item label="id">
+                <el-input v-model="form.id"></el-input>
+            </el-form-item>
+            <el-form-item label="status">
+                <el-select v-model="form.status" placeholder="machineStatus">
+                    <el-option v-for="(item,index) in machineStatus" :label="item.label" :value="item.value" :key="'machineStatus_'+index"></el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="send">send</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cn.vuejs.org/js/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                machineStatus: [
+                    { label: 'idle', value: 0 },
+                    { label: 'running', value: 1 },
+                    { label: 'finished', value: 2 },
+                    { label: 'errored', value: -1 }
+                ],
+                form: {
+                    machine_id: '',
+                    id: '',
+                    timestamp: '',
+                    status: undefined
+                },
+                webSocket: undefined
+            }
+        },
+        methods: {
+            send() {
+                this.form.timestamp = new Date()
+                const data = {
+                    "topic": "events",
+                    "ref": null,
+                    "payload": this.form,
+                    "event": "new"
+                }
+
+                this.webSocket.send(JSON.stringify(data));
+            },
+            guid() {
+                function S4() {
+                    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+                }
+                return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+            },
+            connect() {
+                var subprotocols = new Array();
+
+                //subprotocols.push('aspnetcore-ws.plaintext');
+
+                subprotocols.push('aspnetcore-ws.json');
+
+                this.webSocket = new WebSocket('ws://localhost:12093/ws', subprotocols)
+
+                this.webSocket.onopen = function () {
+                    console.log('connected')
+                };
+
+                this.webSocket.onclose = function () {
+                    console.log('disconnected')
+                };
+                this.webSocket.onerror = function (e) {
+                    console.error('error:' + e)
+                };
+                this.webSocket.onmessage = function (message) {
+                    var parsedData = JSON.parse(message.data);
+                    console.log(parsedData)
+                };
+            },
+            disconnect() {
+                this.webSocket.close();
+            }
+        },
+        created() {
+            this.form.machine_id = this.guid()
+            this.form.id = this.guid()
+
+            console.log(this.form)
+        },
+        mounted() {
+        }
+    })
+</script>
+</html>

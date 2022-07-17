@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WS.Zeiss.Server", "Demo.WS.Zeiss.Server\Demo.WS.Zeiss.Server.csproj", "{9ED08D4D-0997-4394-B0B6-104DE0D55AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WS.Zeiss.Client", "Demo.WS.Zeiss.Client\Demo.WS.Zeiss.Client.csproj", "{71259B51-2E2F-4E4D-A0B8-881654165367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WS.Core", "Demo.WS.Core\Demo.WS.Core.csproj", "{258B6C6B-36E0-4627-AA06-C1E474D55C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD50BE5E-798F-4FE1-A3FC-E05EA18D4CCC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WS.Zeiss.Model", "Demo.WS.Zeiss.Model\Demo.WS.Zeiss.Model.csproj", "{FF108C0D-3AD6-4F87-AAC5-BA42D87AA252}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ED08D4D-0997-4394-B0B6-104DE0D55AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED08D4D-0997-4394-B0B6-104DE0D55AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED08D4D-0997-4394-B0B6-104DE0D55AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED08D4D-0997-4394-B0B6-104DE0D55AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71259B51-2E2F-4E4D-A0B8-881654165367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71259B51-2E2F-4E4D-A0B8-881654165367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71259B51-2E2F-4E4D-A0B8-881654165367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71259B51-2E2F-4E4D-A0B8-881654165367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258B6C6B-36E0-4627-AA06-C1E474D55C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258B6C6B-36E0-4627-AA06-C1E474D55C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258B6C6B-36E0-4627-AA06-C1E474D55C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258B6C6B-36E0-4627-AA06-C1E474D55C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF108C0D-3AD6-4F87-AAC5-BA42D87AA252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF108C0D-3AD6-4F87-AAC5-BA42D87AA252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF108C0D-3AD6-4F87-AAC5-BA42D87AA252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF108C0D-3AD6-4F87-AAC5-BA42D87AA252}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D49E04A-6489-4B77-AB79-C39736F48BA0}
+	EndGlobalSection
+EndGlobal
